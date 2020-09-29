@@ -14,5 +14,10 @@
     <p>Hiển thị thông điệp từ API: <strong id="name">...</strong></p>
   </main>
 </body>
-
+<script>
+  (async function() {
+    let { text } = await (await fetch(`/api/GetMessage`)).json();
+    document.querySelector('#name').textContent = text;
+  }())
+</script>
 </html>
